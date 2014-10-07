@@ -1,7 +1,7 @@
 ## Human Transcription Factor list from Yishai Shimoni and Mariano Alvarez
 ## Source:
 ## http://figshare.com/articles/TF_list_/871524
-##
+## Clean list in the file 'data/TF_Shimoni_Alvarez.txt'
 
 165	AEBP1
 190	NR0B1
