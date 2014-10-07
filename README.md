@@ -7,11 +7,11 @@ Transcriptional Master Regulator search in Cancer
 Important links:
 
 
-* [MARINAa](http://wiki.c2b2.columbia.edu/califanolab/index.php/Software/MARINA) (Master Regulator Inference Algorithm) home page
+* [MARINa](http://wiki.c2b2.columbia.edu/califanolab/index.php/Software/MARINA) (Master Regulator Inference Algorithm) home page
 
 * [ssmarina](http://dx.doi.org/10.6084/m9.figshare.785718), [R](http://cran.r-project.org/) implementation of MARINa algoritm  by [Mariano Alvarez](http://systemsbiology.columbia.edu/people/mariano-alvarez). A copy of this package, and the main scripts are included in this repository.
 
-* [ARACNe](http://wiki.c2b2.columbia.edu/califanolab/index.php/Software/ARACNE)
+* [ARACNe](http://wiki.c2b2.columbia.edu/califanolab/index.php/Software/ARACNE) (Algorithm for the Reconstruction of Accurate Cellular Networks)
 
 * [Breast Cancer Network](https://github.com/CSB-IG/breast_cancer_networks) analisys, brother repository of this work 
 
