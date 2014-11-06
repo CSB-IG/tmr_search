@@ -33,7 +33,7 @@ signature <- (qnorm(signature$p.value/2, lower.tail=F) * sign(signature$statisti
 
 # BOOTSTRAPED SIGNATURE
 
-BTsignature <- bootstrapTtest(dset[, GCBcell], dset[, naiveBcell], per=100)
+BTsignature <- bootstrapTtest(dset[, enfMuest], dset[, sanMuest], per=100)
 
 
 ########  N U L L  M O D E L ######## 

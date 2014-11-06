@@ -108,14 +108,11 @@ mrshadow <- shadow(mrs2, pval=25)
 # Synergy analysis
 mrs2 <- marinaCombinatorial(mrs2, regulators=25) # Los 25 reguladores más altos
 
-
-## WAITING
-
 #### *MARINa* Bootstrap
 
 signature <- bootstrapTtest(dset[, enfMuest], dset[, sanMuest])
-mrs <- marina(signature, regulon, nullmodel)
-mrs <- bootstrapMarina(mrs, "mode")
+mrs_ShA_BT <- marina(signature, regul_ShA, nullmodel)
+mrs_ShA_BT <- bootstrapMarina(mrs, "mode")
 plot(mrs, cex=.7)
 
 
