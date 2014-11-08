@@ -4,10 +4,11 @@
 
 ######## LOADS ########
 
-setwd(~/MARINa/)
+setwd("~/MARINa")
 library(ssmarina)
 library(mixtools)
 
+print("Source loaded")
 ######## D A T A  S E T ######## 
 
 # Expression data
@@ -40,6 +41,7 @@ signature <- (qnorm(signature$p.value/2, lower.tail=F) * sign(signature$statisti
 print("signature ready")
 
 # BOOTSTRAPED SIGNATURE
+print("proced to calculet  Bootstrap signature")
 
 BTsignature <- bootstrapTtest(dset[, enfMuest], dset[, sanMuest], per=100)
 
@@ -48,11 +50,13 @@ print("Bootstrap signature ready")
 ########  N U L L  M O D E L ######## 
 
 # NULL model by sample permutations
+print("proced to calculet  null model")
 nullmodel <- ttestNull(dset[, enfMuest], dset[, sanMuest], per=1000, repos=T)
 
 print("Null model ready")
 
 print("saving")
+
 save.image("general_MARINa.RData")
 savehistory("general_MARINa.Rhistory")
 

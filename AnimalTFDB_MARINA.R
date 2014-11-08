@@ -4,11 +4,10 @@
 
 ######## LOADS ########
 
-setwd(~/MARINa/)
-
+setwd("~/MARINa")
 library(ssmarina)
 library(mixtools)
-load("/home/hachepunto/MARINa/general_MARINA.RData")
+load("general_MARINA.RData")
 to_clean <- ls()
 print("Source loaded")
 

@@ -4,8 +4,7 @@
 
 ######## LOADS ########
 
-setwd(~/MARINa/)
-
+setwd("~/MARINa")
 library(ssmarina)
 library(mixtools)
 load("general_MARINA.RData")
