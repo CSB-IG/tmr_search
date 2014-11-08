@@ -4,10 +4,11 @@
 
 ######## LOADS ########
 
-setwd(~/MARINa/)
+setwd("~/MARINa")
 library(ssmarina)
 library(mixtools)
 
+print("Source loaded")
 ######## D A T A  S E T ######## 
 
 # Expression data
