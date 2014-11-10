@@ -7,7 +7,7 @@
 setwd("~/MARINa")
 library(ssmarina)
 library(mixtools)
-load("general_MARINA.RData")
+load("general_MARINa.RData")
 to_clean <- ls()
 
 print("Source loaded")

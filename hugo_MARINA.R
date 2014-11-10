@@ -7,7 +7,7 @@
 setwd("~/MARINa")
 library(ssmarina)
 library(mixtools)
-load("general_MARINA.RData")
+load("general_MARINa.RData")
 to_clean <- ls()
 print("Source loaded")
 
@@ -16,7 +16,7 @@ print("Source loaded")
 ### One proces by TF list
 
 # adj from ARACNe imput data
-hugo_adjfile <- file.path("/home/hachepunto/MARINa/Hugo_p1e-10.adj")
+hugo_adjfile <- file.path("/home/hachepunto/MARINa/hugo_p1e-10.adj")
 print("adj loaded")
 
 
