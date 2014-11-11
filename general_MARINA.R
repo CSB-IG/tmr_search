@@ -17,7 +17,7 @@ dset <- as.matrix(dset)
 
 dset <- dset[-c(6468,8309),] #genes que tienen valro de infinito en la firma molecular.
 
-print("deset ready")
+print("data set loaded")
 
 # List of cases
 sanos <- c("GSM158644.CEL", "GSM158645.CEL", "GSM158646.CEL","GSM241999.CEL","GSM242000.CEL","GSM242001.CEL","GSM242002.CEL","GSM242003.CEL","GSM242004.CEL","GSM242005.CEL","GSM242006.CEL","GSM242007.CEL","GSM242008.CEL","GSM242009.CEL","GSM242010.CEL","GSM242011.CEL","GSM242012.CEL","GSM242013.CEL","GSM398074.CEL","GSM398076.CEL","GSM398078.CEL","GSM398080.CEL","GSM398082.CEL","GSM398084.CEL","GSM398086.CEL","GSM398088.CEL","GSM398090.CEL","GSM398092.CEL","GSM398094.CEL","GSM398096.CEL","GSM398098.CEL","GSM398100.CEL","GSM398102.CEL","GSM398104.CEL","GSM398106.CEL","GSM398108.CEL","GSM398110.CEL","GSM398112.CEL","GSM398114.CEL","GSM398116.CEL","GSM398118.CEL","GSM398120.CEL","GSM398122.CEL","GSM398124.CEL","GSM398126.CEL","GSM398128.CEL","GSM398130.CEL","GSM398132.CEL","GSM398134.CEL","GSM398136.CEL","GSM398138.CEL","GSM398140.CEL","GSM398142.CEL","GSM398144.CEL","GSM398146.CEL","GSM398148.CEL","GSM398150.CEL","GSM398152.CEL","GSM398154.CEL","GSM398156.CEL","GSM398158.CEL")
@@ -28,9 +28,10 @@ grupos <- list(sanos=sanos,enfermos=enfermos)
 sanMuest <- which(colnames(dset) %in% grupos[["sanos"]])
 enfMuest <- which(colnames(dset) %in% grupos[["enfermos"]])
 
-print("deset divided")
+print("data set ready")
 
 ########  S I G N A T U R E ######## 
+print("Proced to compute signature")
 
 # Row by row T test comparation of the two matrix
 signature <- rowTtest(dset[, enfMuest], dset[, sanMuest])
@@ -41,7 +42,7 @@ signature <- (qnorm(signature$p.value/2, lower.tail=F) * sign(signature$statisti
 print("signature ready")
 
 # BOOTSTRAPED SIGNATURE
-print("proced to calculet  Bootstrap signature")
+print("proced to compute  Bootstrap signature")
 
 BTsignature <- bootstrapTtest(dset[, enfMuest], dset[, sanMuest], per=100)
 
@@ -50,14 +51,16 @@ print("Bootstrap signature ready")
 ########  N U L L  M O D E L ######## 
 
 # NULL model by sample permutations
-print("proced to calculet  null model")
+print("proced to compute  null model")
 nullmodel <- ttestNull(dset[, enfMuest], dset[, sanMuest], per=1000, repos=T)
 
-print("Null model ready")
+print("null model ready")
 
+
+##################################################
+#################### S A V E  ######################
+##################################################
 print("saving")
-
 save.image("general_MARINa.RData")
 savehistory("general_MARINa.Rhistory")
-
-print("All done")
+print("All done!")
