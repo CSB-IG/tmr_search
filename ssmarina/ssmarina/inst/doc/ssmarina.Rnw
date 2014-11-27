@@ -1,0 +1,299 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{hyperref}
+%\VignetteIndexEntry{Using ssmarina}
+
+\title{Using ssmarina, a package for single-sample Master Regulator Analysis}
+\author{Mariano J. Alvarez and Andrea Califano\\Department of Systems Biology, Columbia University, New York, USA}
+\date{\today}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\maketitle
+
+%-----------
+\section{Overview of MARINa}\label{sec:overview}
+Phenotypic changes effected by pathophysiological events are now routinely captured by gene expression profile (GEP) measurements, determining mRNA abundance on a genome-wide scale in a cellular population\cite{Klein2003, Tothill2008}.
+In contrast, methods to measure protein abundance on a proteome-wide scale using arrays\cite{Wolf-Yadlin2009} or mass spectrometry\cite{Bozovic2012} technologies are far less developed, covering only a fraction of proteins, requiring large amounts of tissue, and failing to directly capture protein activity.
+Furthermore, mRNA expression does not constitute a reliable predictor of protein activity, as it fails to capture a variety of post-transcriptional and post-translational events that are involved in its modulation.
+Even reliable measurements of protein abundance, for instance by low-throughput antibody based methods or by higher-throughput methods such as mass spectrometry, do not necessarily provide quantitative assessment of functional activity.
+For instance, enzymatic activity of signal transduction proteins, such as kinases, ubiquitin ligases, and acetyltransferases, is frequently modulated by post-translational modification events that do not affect total protein abundance.
+Similarly, transcription factors may require post-translationally mediated activation, nuclear translocation, and co-factor availability before they may regulate specific repertoires of their transcriptional targets.
+Finally, most target-specific drugs affect the activity of their protein substrates rather than their protein or mRNA transcript abundance.
+
+The ssMARINa (single-sample MAster Regulator Inference algorithm) allows computational inference of transcription factor protein activity, on an individual sample basis, from gene expression profile data.
+It uses the expression of genes that are most directly regulated by a given protein, such as the targets of a transcription factor (TF), as an accurate reporter of its activity.
+
+We have shown that analysis of TF targets inferred by the ARACNe algorithm\cite{Basso2005, Margolin2006}, using the Master Regulator Inference algorithm (MARINa)\cite{Lefebvre2010}, is effective in identifying drivers of specific cellular phenotypes.
+Several MARINa-inferred Master Regulators (MRs) were experimentally validated and shown to have significant differential protein activity, without significant changes in their mRNA expression\cite{Lefebvre2010, Carro2010b}.
+We have recently enhanced the MARINa algorithm by incorporating the mode of regulation (MoR, including activation, repression or non-determined), regulator-target gene interaction confidence, and target pleiotropic regulation\cite{Alvarez2013}.
+We have found that enrichment of both activated and repressed targets of a TF (i.e., the TF regulon) in genes that are differentially expressed in a specific sample (e.g., a population of drug perturbed cells) is an accurate predictor of its differential activity at the protein level, even when the TF gene expression is unaffected\cite{Alvarez2013}.
+
+The ssMARINa algorithm is the extension of this approach to rank relative TF protein activity on a sample-by-sample basis, thus allowing transformation of a typical gene expression matrix (i.e. multiple mRNA profiled across multiple samples) into a TF protein activity matrix, representing the relative activity of each TF in each sample.
+
+The \emph{ssmarina} package implements MARINa and ssMARINa algorithms in R.
+The \emph{bcellExample} data package provides some example datasets and a small B-cell context-specific transcriptional regulatory network, representing 172,240 inferred regulatory interactions between 621 TFs and 6,249 target genes.
+Additional networks can be obtained from figshare (Table \ref{tab:public-networks}) and from the author's web site (\url{http://wiki.c2b2.columbia.edu/califanolab/index.php/Software}).
+
+\begin{table}\footnotesize
+\caption{\label{tab:public-networks}Regulatory networks available from figshare.}
+\begin{center}
+\begin{tabular}{ll}
+\hline
+Title & Figshare citation\\
+\hline
+Human B-cell transcriptional network & \url{http://dx.doi.org/10.6084/m9.figshare.680885}\\
+Human B-cell transcriptional network & \url{http://dx.doi.org/10.6084/m9.figshare.680888}\\
+Human glioma transcriptional network & \url{http://dx.doi.org/10.6084/m9.figshare.680887}\\
+MCF7 human breast carcinoma cell line transcriptional network & \url{http://dx.doi.org/10.6084/m9.figshare.680889}\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+%--------
+\section{Citation}
+Alvarez, M. J., Shen, Y, Ding, B. B., Ye, B. H. \& Califano, A. Inferring global protein activity profiles
+by network based analysis of gene expression signatures. (Manuscript in preparation).
+%--------
+\section{Generating the \emph{regulon} object}
+<<echo=FALSE, results=hide>>=
+library(ssmarina)
+library(bcellExample)
+@
+As described under `Overview of MARINa' (section \ref{sec:overview}), MARINa and ssMARINa require a gene expression signature and an appropriate cell context-specific regulatory network. This regulatory network is provided in the format of a class \emph{regulon} object.
+Regulon objects can be generated from networks reverse engineered with the ARACNe algorithm \cite{Basso2005}.
+This is performed by the function \emph{aracne2regulon}, which takes two arguments as input: the ARACNe output \emph{.adj} file, and the expression data-set used by ARACNe to reverse engineer the network.
+As an example, the package \emph{bcellExample} provides a subset of the ARACNe output file containing the network for 20 TF regulators (\emph{bcellaracne.adj} file).
+For convenience, the full network is also provided, as a \emph{regulon} class object, together with the gene expression data used to reverse engineer it.
+The B-cell expression data contains 211 samples representing several normal and tumor human B-cell phenotypes profiled on Affymetrix H-GU95Av2 (Gene Expression Omnibus series GSE2350)\cite{Basso2005}.
+The provided dataset was generated from custom probe-clusters obtained by the the cleaner algorithm\cite{Alvarez2009} and MAS5\cite{Gautier2004} normalization.
+
+The following lines are an example for the use of \emph{aracne2regulon} function to generate the \emph{regulon} object from the ARACNe output data and the expression data:
+
+<<echo=TRUE, results=hide>>=
+data(bcellExample)
+adjfile <- file.path(find.package("bcellExample"), "aracne", "bcellaracne.adj")
+regul <- aracne2regulon(adjfile, dset)
+@
+<<echo=TRUE, results=verbatim>>=
+print(regul)
+@
+
+%-------
+\section{Master Regulator Analysis (MARINa)}
+To illustrate this section, we are going to analyze part of the expression data from \cite{Basso2005}, consitent on 5 naive human B-cell, 5 memory B-cell, 5 centroblast and 5 centrocytes B-cell samples profiled on Affymetrix H-GU95Av2 gene arrays.
+The complete dataset is available from Gene Expression Omnibus (GSE2350), and here for convenience, we have included the `cleaner'\cite{Alvarez2009} processed and MAS5\cite{Gautier2004} normalized samples in the \emph{bcellExample} package.
+
+\subsection{Generating the gene expression signatures}
+Lets assume that we are interested in identifying transcriptional regulators associated with the Germinal Center (GC) reaction.
+GC are the peripheral lymphoid organs where antigen-driven somatic hypermutation of the genes encoding the immunoglobulin variable region occurs, and are the main source of memory B cells and plasma cells that produce high-affinity antibodies.
+Centroblasts and centrocytes are the main B-cell phenotypes present in the GCs, they are derived from antigen-stimulated peripheral blood B-cells, and represent the most proliferative cellular physiologic phenotypes of the adult human body.
+Thus, we can obtain a gene expression signature for the GC formation by comparing GC (centroblasts and centrocytes) against naive B-cells. So we first select these two groups of samples:
+<<echo=TRUE, results=hide>>=
+naiveBcell <- which(colnames(dset) %in% normalSamples[["N"]])
+GCBcell <- which(colnames(dset) %in% c(normalSamples[["CB"]], normalSamples[["CC"]]))
+@
+The \emph{ssmarina} package includes the function \emph{rowTtest} that efficiently performs Student's t-test by comparing two matrixes row-by-row.
+The \emph{rowTtest} function takes two matrixes as arguments, the first one containing the `test' samples and the second the `reference' samples, and produces a list object containing the Student's t-statistic (\texttt{statistic}) and the test's p-value (\texttt{p.value}), that by default is estimated by a 2-tailed test.
+<<echo=TRUE, results=hide>>=
+signature <- rowTtest(dset[, GCBcell], dset[, naiveBcell])
+@
+
+While we could define the GES by using the t-statistic, to be consistent with the z-score based null model for MARINa (see section \ref{sec:marina-null}), we will estimate z-score values for the GES:
+<<echo=T, results=hide>>=
+signature <- (qnorm(signature$p.value/2, lower.tail=F) * sign(signature$statistic))[, 1]
+@
+
+\subsection{NULL model by sample permutations}\label{sec:marina-null}
+A uniform distribution of the targets on the GES is not a good prior for MARINa.
+Given the high degree of co-regulation in transcriptional networks, the assumption of statistical independence of gene expression is unrealistic an can potentially lead to p-value underestimates.
+To account for the correlation structure between genes, we define a null model for MARINa by using a set of signatures obtained after permuting the samples at random. 
+The function \emph{ttestNull} performs such process by shuffling the samples among the `test' and `reference' sets, according to the re-sampling mode and number of permutations indicated by the parameters \emph{repos} and \emph{per}, respectively.
+<<echo=TRUE, results=hide>>=
+nullmodel <- ttestNull(dset[, GCBcell], dset[, naiveBcell], per=1000, repos=T)
+@
+
+As output, the \emph{ttestNull} function produces a numerical matrix of z-scores, with genes/probes in rows and permutation iterations in columns, than can be used as null model for the MARINa analysis.
+
+\subsection{MARINa}
+The last element required by MARINa that we are still missing is an apropriate cell context-specific regulatory network.
+We have included a B-cell regulatory network in the \emph{bcellExample} package, and additional networks for human B-cell, glioma and breast carcinoma can be obtained from figshare (Table \ref{tab:public-networks}).
+<<echo=TRUE, results=verbatim>>=
+regulon
+@
+
+The MARINa analysis is performed by the \emph{marina} function.
+It requires a \emph{GES}, \emph{regulon object} and \emph{null model} as arguments, and produces an object of class `marina', containing the GES, regulon and estimated enrichment, including the Normalized Enrichment Score (NES) and p-value, as output.
+<<echo=TRUE, results=hide>>=
+mrs <- marina(signature, regulon, nullmodel)
+@
+
+The reults can be summarized by the generic function \emph{summary}, which takes the marina object and either the number of top regulators to report or a specific set of regulators to list.
+The default for this parameter is the top 10 master regulators (MRs).
+<<echo=TRUE, results=verbatim>>=
+summary(mrs)
+@
+
+A graphics representation of the results (MARINa plot) can be obtained by the generic function \emph{plot}.
+It takes the \emph{marina} object and either, the number of top differentially active regulators, or the names of the regulators to include in the plot as arguments. The default behavior is to plot the top 10 most differentially active MRs.
+\begin{center}
+<<fig=TRUE, echo=TRUE>>=
+plot(mrs, cex=.7)
+@
+\end{center}
+The MARINa plot shows the projection of the negative (repressed, shown in blue color) and positive (activated, shown in red color) targets for each TF (vertical lines resembling a bar-code) on the GES (\emph{x-axis}), where the genes in the GES were rank-sorted from the one most down-regulated to the one most upregulated in the `test' vs `reference' conditions.
+The optional two-columns heatmap displayed on the right side of the figure shows the inferred differential activity (first column) and differential expression (second column), with the rank of the displayed genes in the GES (shown on the right).
+
+\subsubsection{Leading-edge analysis}
+MARINa infers the relative activity of a regulatory gene based on the enrichment of its most closely-regulated targets on a given GES, but does not identify which are the target genes enriched in the GES.
+Subramanian et al. \cite{Subramanian2005} proposed a method called leading-edge analysis to identify the genes driving the enrichment of a gene-set on a GES based on Gene Set Enrichment Analysis (GSEA).
+We implemented the leading-edge analysis in the \emph{ledge} function of the \emph{ssmarina} package.
+The function only has a `marina' class object as argument and generates an updated `marina' object that now includes a `ledge' slot.
+<<echo=TRUE, results=verbatim>>=
+mrs <- ledge(mrs)
+summary(mrs)
+@
+%--------
+\section{Beyond MARINa}
+
+\subsection{Bootstrap MARINa}
+The effect of outlier samples on the gene expression signature can be reduced by the use of resampling techniques\cite{Alvarez2013}.
+MARINA is capable of performing the analysis with bootstrap if a matrix of bootstraped signatures, instead of a vector, is given as \emph{signature} argument.
+We implemened the function \emph{bootstrapTtest} in the \emph{ssmarina} package to generate this kind of bootstraped GES matrixes from the `test' and `reference' datasets.
+The function produces 100 bootstrap interactions by default.
+<<echo=TRUE, results=hide>>=
+signature <- bootstrapTtest(dset[, GCBcell], dset[, naiveBcell], per=100)
+mrs <- marina(signature, regulon, nullmodel)
+@
+
+By default, \emph{marina} integrates the regulator activity results across all bootstraped iteration using the average, but this can be easily modified to use the median or mode values by the \emph{bootstrapMarina} function:
+<<echo=T, results=hide>>=
+mrs <- bootstrapMarina(mrs, "mode")
+@
+
+Bootstraped marina results can be displayed in the same way as non-bootstraped results:
+\begin{center}
+<<fig=TRUE, echo=TRUE>>=
+plot(mrs, cex=.7)
+@
+\end{center}
+
+\subsection{Shadow analysis}
+A regulator may appear to be significantly activated based on its regulon's analysis, simply because several of its targets may also be regulated by a \emph{bona fide} activated TF (shadow effect)\cite{Lefebvre2010, Jiang2007a}.
+This constitutes a significant confounding issue, since transcriptional regulation is highly pleotropic, with individual targets being regulated by many TFs.
+MARINa and ssMARINa (section \ref{sec:ssmarina}) address this issue by penalizig the contribution of the pleotropically regulated targets to the enrichment score.
+However, a post-hoc shadow analysis, as described in \cite{Lefebvre2010} can still be applied to the marina results with the function \emph{shadow}.
+This function takes a class `marina' object, and performs a shadow analysis on a selected number of top MRs indicated by the argument \emph{pval}, which can be used to indicate either the enrichment p-value cutoff, the number of top MRs, or the names of the MRs to consider in the analysis.
+<<echo=TRUE, results=hide>>=
+mrshadow <- shadow(mrs, pval=25)
+@
+
+As output, the \emph{shadow} function produces an updated `marina' object.
+The summary of it, generated by the \emph{summary} function, will lists now not only the top MRs, but also the shadow pairs, in the form: $MR_1 -> MR_2$, indicating that part of the inferred $MR_2$ ativity is due to co-regulation of $MR_2$ target genes by $MR_1$. 
+<<echo=TRUE, results=verbatim>>=
+summary(mrshadow)
+@
+
+\subsection{Synergy analysis}
+To predict synergistic interactions between regulators we first compute the enrichment of co-regulons, defined as the intersection between regulons.
+We expect that a combination of regulators will synergistically regulate a gene expression signature if their co-regulon show a significantly higher enrichment on the signature than the union of the corresponding regulons\cite{Carro2010b}.
+Co-regulon analysis was implemented in the \emph{ssmarina} package by the \emph{marinaCombinatorial} function.
+It takes a `marina' object as argument and computes the enrichment of all co-regulons, generated from a selected number of MRs (indicated by the \emph{regulators} parameter), on the GES.
+As an usage example, we are going to compute the enrichment of the co-regulons for the top 25 regulators,
+<<echo=TRUE, results=hide>>=
+mrs <- marinaCombinatorial(mrs, regulators=25)
+@
+
+The comparison between the enrichment of the co-regulon versus the union of the corresponding regulons (synergy analysis) is implemented by the function \emph{marinaSynergy}, which requires only a `marina' object generated by \emph{marinaCombinatorial} and the number of permutations used to compute the p-values, which default is 1,000:
+<<echo=TRUE, results=hide>>=
+mrs <- marinaSynergy(mrs)
+@
+
+The output of \emph{marinaSynergy} is still a class `marina' object and hence the \emph{plot} and \emph{summary} methods can be applied to it.
+The output of \emph{summary} will include in this case the enrichment results for the co-regulons and the p-value for the predicted synergistic effect.
+<<echo=TRUE, results=verbatim, fig=TRUE>>=
+summary(mrs)
+plot(mrs, 25, cex=.7)
+@
+
+%--------
+\section{Single-sample MAster Regulator INference algorithm (ssMARINa)}\label{sec:ssmarina}
+ssMARINa is the extension of MARINa to single sample-based analysis.
+It effectively transforms a gene expression matrix to a regulators' activity matrix.
+The simplest implementation of ssMARINa is based on single-sample gene expression signatures obtained by scaling the probes or genes (subtracting the mean and dividing by the standard devition of each row).
+A gene expression matrix and appropriate regulatory network are the minimum set of parameters required to perform a ssMARINa analysis with the function \emph{ssmarina}.
+<<echo=TRUE, results=hide>>=
+vpres <- ssmarina(dset, regulon)
+@
+
+The \emph{ssmarina} function generates a matrix of regulator's activity, containing \Sexpr{nrow(vpres)} regulators x \Sexpr{ncol(vpres)} samples in our example.
+<<echo=TRUE, results=verbatim>>=
+dim(vpres)
+@
+
+The differential activity of regulators between groups of samples, for example between germinal center B-cell and Naive B-cells, can be obtained by any hypothesis testing statistical method, like for example the Student's t-test:
+<<echo=T, results=verbatim>>=
+tmp <- rowTtest(vpres[, GCBcell], vpres[, naiveBcell])
+data.frame(Gene=rownames(tmp$p.value), t=round(tmp$statistic, 2),
+"p-value"=signif(tmp$p.value, 3))[order(tmp$p.value)[1:10], ]
+@
+
+\subsection{Running ssmarina with a null model}
+ssMARINa computes the normalized enrichment score (NES) analytically based on the assumption that in the null situation, the target genes are uniformly distributed on the gene expression signature.
+Because the extensive co-regulation of gene expression taking place in the cell, this assumption never holds true, and this is the reason why a null model based on sample permutations is used in MARINa to estimate NES.
+The same approach can also be used for ssMARINa, given that a set of samples is used as reference for the analysis.
+We can generate a set of GESs based on a set of reference samples, and the corresponding null model based on sample permutations, with the function \emph{ssmarinaSignature}.
+It takes two matrixes as arguments, the first one containing the expression data for all the `test' samples, and the second corresponding to the `reference' samples.
+The number of permutations for the null model can be defined by the \emph{per} argument, whose default value is 1,000.
+<<echo=T, results=hide>>=
+vpsig <- ssmarinaSignature(dset[, -naiveBcell], dset[, naiveBcell])
+vpres <- ssmarina(vpsig, regulon)
+@
+
+Because after ssMARINa analysis, the activity of different regulators is expressed in the same scale (normalized enrichment score), euclidean distance is an appropriate meassure of similarity between samples and we can, for example, perform an unsupervised hierarchical cluster analysis of the samples in a similar way we would do it in the case of gene expression data:
+
+<<echo=TRUE, results=hide, fig=TRUE>>=
+d1 <- vpres[, match(unlist(normalSamples[names(normalSamples) != "N"]), colnames(vpres))]
+colnames(d1) <- rep(c("M", "CB", "CC"), c(5, 5, 5))
+dd <- dist(t(d1), method="euclidean")
+heatmap(as.matrix(dd), Rowv=as.dendrogram(hclust(dd, method="average")), symm=T)
+@
+
+We have developed, and included in the \emph{ssmarina} package, a function to compute the similarity between the columns of a gene expression or ssMARINa-predicted activity matrix.
+It follows the same concept as the two-tail Gene Set Enrichment Analysis (GSEA)\cite{Julio2011}, but it is based on the wREA-2 algorithm\cite{Alvarez2013}.
+The \emph{signatureDistance} function takes an expression or activity matrix as input, and generates a matrix of similarity scores between sample pairs, in the form of a `similarityDistance' class object.
+In our example, because we want to compute the similarity between samples based on their regulators' relative activity vectors, we set the \emph{scale.} argument to FALSE.
+<<echo=TRUE, results=hide>>=
+dd <- signatureDistance(d1, scale.=F)
+@
+
+We can use the generic function \emph{scale} to `scale' the similary matrix in the rage [-1; 1], and the resulting matrix will be analogous to a correlation matrix.
+In this case, identical signatures will produce a similarity score equal to 1, while perfectly reversed signatures will produce similarity scores equal to -1.
+Orthogonal signatures will be characterized by similarity scores close to zero.
+As for other matrixes of similarity, the `signatureDistance' class object can be transformed into a `distance' class object with the method \emph{as.dist}, which in turn can be used to perform, for example, cluster analysis of the samples. 
+<<echo=TRUE, results=hide, fig=TRUE>>=
+heatmap(as.matrix(as.dist(dd)), Rowv=as.dendrogram(hclust(as.dist(dd),
+method="average")), symm=T)
+@
+
+%-----------
+\begin{thebibliography}{99}
+\bibitem{Basso2005} Basso, K. et al. Reverse engineering of regulatory networks in human B cells. Nat. Genet. 37, 382-90 (2005).
+\bibitem{Gautier2004} Gautier, L., Cope, L., Bolstad, B. M., and Irizarry, R. A. 2004. affy---analysis of Affymetrix GeneChip data at the probe level. Bioinformatics 20, 3 (Feb. 2004), 307-315.
+\bibitem{Alvarez2009} Alvarez, M. J., Sumazin, P., Rajbhandari, P. \& Califano, A. Correlating measurements across samples improves accuracy of large-scale expression profile experiments. Genome Biol. 10, R143 (2009).
+\bibitem{Lefebvre2010} Lefebvre, C. et al. A human B-cell interactome identifies MYB and FOXM1 as master regulators of proliferation in germinal centers. Mol. Syst. Biol. 6, 377 (2010).
+\bibitem{Jiang2007a} Jiang, Z. \& Gentleman, R. Extensions to gene set enrichment. Bioinformatics (Oxford, England) 23, 306-13 (2007).
+\bibitem{Carro2010b} Carro, M. S. et al. The transcriptional network for mesenchymal transformation of brain tumours. Nature 463, 318-25 (2010).
+\bibitem{Julio2011} Julio, M. K. -d. et al. Regulation of extra-embryonic endoderm stem cell differentiation by Nodal and Cripto signaling. Development 138, 3885-3895 (2011).
+\bibitem{Klein2003} Klein, U. et al. Transcriptional analysis of the B cell germinal center reaction. Proc. Natl. Acad. Sci. USA. 100, 2639-44 (2003).
+\bibitem{Tothill2008} Tothill, R. W. et al. Novel molecular subtypes of serous and endometrioid ovarian cancer linked to clinical outcome. Clin. Cancer Res. 14, 5198-208 (2008).
+\bibitem{Bozovic2012} Bozovic, A. \& Kulasingam, V. Quantitative mass spectrometry-based assay development and validation: From small molecules to proteins. Clin. Biochem. 46, 444-455 (2012).
+\bibitem{Wolf-Yadlin2009} Wolf-Yadlin, A., Sevecka, M. \& MacBeath, G. Dissecting protein function and signaling using protein microarrays. Curr. Opin. Chem. Biol. 13, 398-405 (2009).
+\bibitem{Alvarez2013} Alvarez, M. J. et al. Inferring global protein activity profiles by network based analysis of gene expression signatures. Manuscript in preparation.
+\bibitem{Margolin2006} Margolin, A. A. et al. ARACNE: an algorithm for the reconstruction of gene regulatory networks in a mammalian cellular context. BMC Bioinformatics 7 Suppl 1, S7 (2006).
+\bibitem{Subramanian2005} Subramanian, A. et al. Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles. Proc. Natl. Acad. Sci. USA 102, 15545-50 (2005).
+
+\end{thebibliography}
+%----------
+\end{document}

@@ -1,0 +1,235 @@
+Input	Match type	Approved symbol	Approved name	HGNC ID	Location
+IRF9	Approved symbol	IRF9	interferon regulatory factor 9	HGNC:6131	14q11.2
+IRF7	Approved symbol	IRF7	interferon regulatory factor 7	HGNC:6122	11p15.5
+SREBF1	Approved symbol	SREBF1	sterol regulatory element binding transcription factor 1	HGNC:11289	17p11.2
+NCOR1	Approved symbol	NCOR1	nuclear receptor corepressor 1	HGNC:7672	17p11.2
+ZBTB17	Approved symbol	ZBTB17	zinc finger and BTB domain containing 17	HGNC:12936	1p36.13
+E4F1	Approved symbol	E4F1	E4F transcription factor 1	HGNC:3121	16p13.3
+ZKSCAN4	Approved symbol	ZKSCAN4	zinc finger with KRAB and SCAN domains 4	HGNC:13854	6p21
+CREB3L2	Approved symbol	CREB3L2	cAMP responsive element binding protein 3-like 2	HGNC:23720	7q34
+JUNB	Approved symbol	JUNB	jun B proto-oncogene	HGNC:6205	19p13.13
+FOXE1	Approved symbol	FOXE1	forkhead box E1 (thyroid transcription factor 2)	HGNC:3806	9q22
+HNF1A	Approved symbol	HNF1A	HNF1 homeobox A	HGNC:11621	12q24.31
+FOXL1	Approved symbol	FOXL1	forkhead box L1	HGNC:3817	16q24
+POU4F1	Approved symbol	POU4F1	POU class 4 homeobox 1	HGNC:9218	13q31.1
+ZNF157	Approved symbol	ZNF157	zinc finger protein 157	HGNC:12942	Xp11.2
+MEOX2	Approved symbol	MEOX2	mesenchyme homeobox 2	HGNC:7014	7p22.1-p21.3
+HESX1	Approved symbol	HESX1	HESX homeobox 1	HGNC:4877	3p14.3
+ZNF80	Approved symbol	ZNF80	zinc finger protein 80	HGNC:13155	3q13.31
+SOX3	Approved symbol	SOX3	SRY (sex determining region Y)-box 3	HGNC:11199	Xq27.1
+ZFX	Approved symbol	ZFX	zinc finger protein, X-linked	HGNC:12869	Xp22.1-p21.3
+POU2F3	Approved symbol	POU2F3	POU class 2 homeobox 3	HGNC:19864	11q23.3
+GMEB2	Approved symbol	GMEB2	glucocorticoid modulatory element binding protein 2	HGNC:4371	20q13.33
+ZNF668	Approved symbol	ZNF668	zinc finger protein 668	HGNC:25821	16p11.2
+ZNF142	Approved symbol	ZNF142	zinc finger protein 142	HGNC:12927	2q35
+DEAF1	Approved symbol	DEAF1	DEAF1 transcription factor	HGNC:14677	11p15.5
+ATF4	Approved symbol	ATF4	activating transcription factor 4	HGNC:786	22q13.1
+FOXO3	Approved symbol	FOXO3	forkhead box O3	HGNC:3821	6q21
+TFCP2	Approved symbol	TFCP2	transcription factor CP2	HGNC:11748	12q13
+FOXK2	Approved symbol	FOXK2	forkhead box K2	HGNC:6036	17q25
+PITX1	Approved symbol	PITX1	paired-like homeodomain 1	HGNC:9004	5q31.1
+HOXA1	Approved symbol	HOXA1	homeobox A1	HGNC:5099	7p15.2
+DMRT1	Approved symbol	DMRT1	doublesex and mab-3 related transcription factor 1	HGNC:2934	9p24.3
+SOX30	Approved symbol	SOX30	SRY (sex determining region Y)-box 30	HGNC:30635	5q33
+ST18	Approved symbol	ST18	suppression of tumorigenicity 18, zinc finger	HGNC:18695	8q11.23
+RREB1	Approved symbol	RREB1	ras responsive element binding protein 1	HGNC:10449	6p25
+ZKSCAN5	Approved symbol	ZKSCAN5	zinc finger with KRAB and SCAN domains 5	HGNC:12867	7q22
+RFX4	Approved symbol	RFX4	regulatory factor X, 4 (influences HLA class II expression)	HGNC:9985	12q24
+ESR2	Approved symbol	ESR2	estrogen receptor 2 (ER beta)	HGNC:3468	14q21-q22
+SATB2	Approved symbol	SATB2	SATB homeobox 2	HGNC:21637	2q33.1
+MSX2	Approved symbol	MSX2	msh homeobox 2	HGNC:7392	5q35.2
+PBRM1	Approved symbol	PBRM1	polybromo 1	HGNC:30064	3p21
+SIM1	Approved symbol	SIM1	single-minded family bHLH transcription factor 1	HGNC:10882	6q16.3
+MYT1L	Approved symbol	MYT1L	myelin transcription factor 1-like	HGNC:7623	2p25.3
+ZNF506	Approved symbol	ZNF506	zinc finger protein 506	HGNC:23780	19p13.11
+ZNF586	Approved symbol	ZNF586	zinc finger protein 586	HGNC:25949	19q13.43
+MYB	Approved symbol	MYB	v-myb avian myeloblastosis viral oncogene homolog	HGNC:7545	6q22-q23
+ZNF419	Approved symbol	ZNF419	zinc finger protein 419	HGNC:20648	19q13.43
+ZNF780B	Approved symbol	ZNF780B	zinc finger protein 780B	HGNC:33109	19q13.2
+NPAS3	Approved symbol	NPAS3	neuronal PAS domain protein 3	HGNC:19311	14q13.1
+ZNF667	Approved symbol	ZNF667	zinc finger protein 667	HGNC:28854	19q13.43
+ZBTB43	Approved symbol	ZBTB43	zinc finger and BTB domain containing 43	HGNC:17908	9q33.3
+ZBED4	Approved symbol	ZBED4	zinc finger, BED-type containing 4	HGNC:20721	22q13.33
+DR1	Approved symbol	DR1	down-regulator of transcription 1, TBP-binding (negative cofactor 2)	HGNC:3017	1p22.1
+ZNF234	Approved symbol	ZNF234	zinc finger protein 234	HGNC:13027	19q13
+ZNF674	Approved symbol	ZNF674	zinc finger protein 674	HGNC:17625	Xp11.3
+PHB2	Approved symbol	PHB2	prohibitin 2	HGNC:30306	12p13
+CIZ1	Approved symbol	CIZ1	CDKN1A interacting zinc finger protein 1	HGNC:16744	9q34.1
+VPS72	Approved symbol	VPS72	vacuolar protein sorting 72 homolog (S. cerevisiae)	HGNC:11644	1q21
+PDLIM1	Approved symbol	PDLIM1	PDZ and LIM domain 1	HGNC:2067	10q23.1
+SUPT6H	Approved symbol	SUPT6H	suppressor of Ty 6 homolog (S. cerevisiae)	HGNC:11470	17q11.2
+REXO4	Approved symbol	REXO4	REX4, RNA exonuclease 4 homolog (S. cerevisiae)	HGNC:12820	9q34
+ZNF428	Approved symbol	ZNF428	zinc finger protein 428	HGNC:20804	19q13.31
+HCFC1	Approved symbol	HCFC1	host cell factor C1	HGNC:4839	Xq28
+CSDE1	Approved symbol	CSDE1	cold shock domain containing E1, RNA-binding	HGNC:29905	1p13.2
+NOTCH1	Approved symbol	NOTCH1	notch 1	HGNC:7881	9q34.3
+ZBED1	Approved symbol	ZBED1	zinc finger, BED-type containing 1	HGNC:447	Xp22.33 and Yp11
+SUB1	Approved symbol	SUB1	SUB1 homolog (S. cerevisiae)	HGNC:19985	5p13.3
+ZNF43	Approved symbol	ZNF43	zinc finger protein 43	HGNC:13109	19p13.1-p12
+NCOA1	Approved symbol	NCOA1	nuclear receptor coactivator 1	HGNC:7668	2p23
+CEBPB	Approved symbol	CEBPB	CCAAT/enhancer binding protein (C/EBP), beta	HGNC:1834	20q13.1
+CREB3	Approved symbol	CREB3	cAMP responsive element binding protein 3	HGNC:2347	9p13.3
+CREB3	Synonyms	CREB3L4	cAMP responsive element binding protein 3-like 4	HGNC:18854	1q21.2
+ZNF175	Approved symbol	ZNF175	zinc finger protein 175	HGNC:12964	19q13.4
+ZNF135	Approved symbol	ZNF135	zinc finger protein 135	HGNC:12919	19q13.4
+ZNF33B	Approved symbol	ZNF33B	zinc finger protein 33B	HGNC:13097	10q11.2
+DLX2	Approved symbol	DLX2	distal-less homeobox 2	HGNC:2915	2q31.1
+HLF	Approved symbol	HLF	hepatic leukemia factor	HGNC:4977	17q22
+HLF	Synonyms	EPAS1	endothelial PAS domain protein 1	HGNC:3374	2p21-p16
+ZNF639	Approved symbol	ZNF639	zinc finger protein 639	HGNC:30950	3q27.1
+IRX4	Approved symbol	IRX4	iroquois homeobox 4	HGNC:6129	5p15.33
+ZNF334	Approved symbol	ZNF334	zinc finger protein 334	HGNC:15806	20q13.12
+ZNF254	Approved symbol	ZNF254	zinc finger protein 254	HGNC:13047	19p13
+BNC1	Approved symbol	BNC1	basonuclin 1	HGNC:1081	15q25.1
+BNC1	Synonyms	ASIC2	acid-sensing (proton-gated) ion channel 2	HGNC:99	17q11.2-q12
+ZNF682	Approved symbol	ZNF682	zinc finger protein 682	HGNC:28857	19p12
+ZNF225	Approved symbol	ZNF225	zinc finger protein 225	HGNC:13018	19q13.31
+ZNF225	Synonyms	EGR1	early growth response 1	HGNC:3238	5q23-q31
+ZNF613	Approved symbol	ZNF613	zinc finger protein 613	HGNC:25827	19q13.41
+CAMTA1	Approved symbol	CAMTA1	calmodulin binding transcription activator 1	HGNC:18806	1p36.31-p36.23
+MYST2	Previous symbol	KAT7	K(lysine) acetyltransferase 7	HGNC:17016	17q21.32
+NEUROG2	Approved symbol	NEUROG2	neurogenin 2	HGNC:13805	4q25
+SCAND2	Previous symbol	SCAND2P	SCAN domain containing 2 pseudogene	HGNC:10567	15q25.2
+TOX	Approved symbol	TOX	thymocyte selection-associated high mobility group box	HGNC:18988	8q12.2-q12.3
+CHD7	Approved symbol	CHD7	chromodomain helicase DNA binding protein 7	HGNC:20626	8q12.2
+DAXX	Approved symbol	DAXX	death-domain associated protein	HGNC:2681	6p21.3
+SKIL	Approved symbol	SKIL	SKI-like proto-oncogene	HGNC:10897	3q26
+ZNF345	Approved symbol	ZNF345	zinc finger protein 345	HGNC:16367	19q13.12
+BLZF1	Approved symbol	BLZF1	basic leucine zipper nuclear factor 1	HGNC:1065	1q24
+TAF9B	Approved symbol	TAF9B	TAF9B RNA polymerase II, TATA box binding protein (TBP)-associated factor, 31kDa	HGNC:17306	Xq13.1-q21.1
+PIAS2	Approved symbol	PIAS2	protein inhibitor of activated STAT, 2	HGNC:17311	18q12.1-q12.3
+PTH	Approved symbol	PTH	parathyroid hormone	HGNC:9606	11p15.3-p15.1
+TIGD6	Approved symbol	TIGD6	tigger transposable element derived 6	HGNC:18332	5q33.1
+ALS2CR8	Previous symbol	CARF	calcium responsive transcription factor	HGNC:14435	2q33.3
+TLE4	Approved symbol	TLE4	transducin-like enhancer of split 4	HGNC:11840	9q21.32
+C2orf3	Previous symbol	GCFC2	GC-rich sequence DNA-binding factor 2	HGNC:1317	2p12
+SLC11A1	Approved symbol	SLC11A1	solute carrier family 11 (proton-coupled divalent metal ion transporter), member 1	HGNC:10907	2q35
+INHBA	Approved symbol	INHBA	inhibin, beta A	HGNC:6066	7p15-p13
+ZDHHC7	Approved symbol	ZDHHC7	zinc finger, DHHC-type containing 7	HGNC:18459	16q23.1
+PARP1	Approved symbol	PARP1	poly (ADP-ribose) polymerase 1	HGNC:270	1q41-q42
+HLA-A	Approved symbol	HLA-A	major histocompatibility complex, class I, A	HGNC:4931	6p21.3
+PLXND1	Approved symbol	PLXND1	plexin D1	HGNC:9107	3q21.3
+CPSF4	Approved symbol	CPSF4	cleavage and polyadenylation specific factor 4, 30kDa	HGNC:2327	7q22
+TRRAP	Approved symbol	TRRAP	transformation/transcription domain-associated protein	HGNC:12347	7q21.2-q22.1
+SIGIRR	Approved symbol	SIGIRR	single immunoglobulin and toll-interleukin 1 receptor (TIR) domain	HGNC:30575	11p15.5
+TICAM1	Approved symbol	TICAM1	toll-like receptor adaptor molecule 1	HGNC:18348	19p13.3
+ZMYM6	Approved symbol	ZMYM6	zinc finger, MYM-type 6	HGNC:13050	1p34.2
+JMJD6	Approved symbol	JMJD6	jumonji domain containing 6	HGNC:19355	17q25
+ASXL1	Approved symbol	ASXL1	additional sex combs like transcriptional regulator 1	HGNC:18318	20q11
+RING1	Approved symbol	RING1	ring finger protein 1	HGNC:10018	6p21.3
+ACP5	Approved symbol	ACP5	acid phosphatase 5, tartrate resistant	HGNC:124	19p13.2
+DAP	Approved symbol	DAP	death-associated protein	HGNC:2672	5p15.2
+DAP	Synonyms	IAPP	islet amyloid polypeptide	HGNC:5329	12p12.1
+DAP	Synonyms	DNPEP	aspartyl aminopeptidase	HGNC:2981	2q36.1
+C14orf169	Approved symbol	C14orf169	chromosome 14 open reading frame 169	HGNC:20968	14q24.3
+HIF1AN	Approved symbol	HIF1AN	hypoxia inducible factor 1, alpha subunit inhibitor	HGNC:17113	10q24
+PNN	Approved symbol	PNN	pinin, desmosome associated protein	HGNC:9162	14q21.1
+HLA-C	Approved symbol	HLA-C	major histocompatibility complex, class I, C	HGNC:4933	6p21.3
+SMARCD2	Approved symbol	SMARCD2	SWI/SNF related, matrix associated, actin dependent regulator of chromatin, subfamily d, member 2	HGNC:11107	17q23.3
+PPRC1	Approved symbol	PPRC1	peroxisome proliferator-activated receptor gamma, coactivator-related 1	HGNC:30025	10q24.32
+RPS19	Approved symbol	RPS19	ribosomal protein S19	HGNC:10402	19q13.2
+TRIB3	Approved symbol	TRIB3	tribbles pseudokinase 3	HGNC:16228	20p13-p12.2
+MKRN1	Approved symbol	MKRN1	makorin ring finger protein 1	HGNC:7112	7q34
+MYH9	Approved symbol	MYH9	myosin, heavy chain 9, non-muscle	HGNC:7579	22q13.1
+PYCARD	Approved symbol	PYCARD	PYD and CARD domain containing	HGNC:16608	16p11.2
+RBM9	Previous symbol	RBFOX2	RNA binding protein, fox-1 homolog (C. elegans) 2	HGNC:9906	22q12-q13
+SUPT16H	Approved symbol	SUPT16H	suppressor of Ty 16 homolog (S. cerevisiae)	HGNC:11465	14q11.1
+COBRA1	Previous symbol	NELFB	negative elongation factor complex member B	HGNC:24324	9q34
+PDCD11	Approved symbol	PDCD11	programmed cell death 11	HGNC:13408	10q24.32
+TOE1	Approved symbol	TOE1	target of EGR1, member 1 (nuclear)	HGNC:15954	1p33
+FLII	Approved symbol	FLII	flightless I homolog (Drosophila)	HGNC:3750	17p11.2
+HIST1H1C	Approved symbol	HIST1H1C	histone cluster 1, H1c	HGNC:4716	6p21.3
+HMGN2	Approved symbol	HMGN2	high mobility group nucleosomal binding domain 2	HGNC:4986	1p36.1
+C17orf81	Previous symbol	ELP5	elongator acetyltransferase complex subunit 5	HGNC:30617	17p13.1
+CTNNBIP1	Approved symbol	CTNNBIP1	catenin, beta interacting protein 1	HGNC:16913	1p36.22
+DNMT1	Approved symbol	DNMT1	DNA (cytosine-5-)-methyltransferase 1	HGNC:2976	19p13.2
+ENG	Approved symbol	ENG	endoglin	HGNC:3349	9q34.11
+HIST1H3G	Approved symbol	HIST1H3G	histone cluster 1, H3g	HGNC:4772	6p22.1
+KDM1	Previous symbol	KDM1A	lysine (K)-specific demethylase 1A	HGNC:29079	1p36.12
+LASS2	Previous symbol	CERS2	ceramide synthase 2	HGNC:14076	1q21.3
+MST1R	Approved symbol	MST1R	macrophage stimulating 1 receptor (c-met-related tyrosine kinase)	HGNC:7381	3p21
+TERF2IP	Approved symbol	TERF2IP	telomeric repeat binding factor 2, interacting protein	HGNC:19246	16q23.1
+HIST1H2BD	Approved symbol	HIST1H2BD	histone cluster 1, H2bd	HGNC:4747	6p22.1
+MATR3	Approved symbol	MATR3	matrin 3	HGNC:6912	5q31.3
+FLNA	Approved symbol	FLNA	filamin A, alpha	HGNC:3754	Xq28
+NOLC1	Approved symbol	NOLC1	nucleolar and coiled-body phosphoprotein 1	HGNC:15608	10q24.32
+ZC3H11A	Approved symbol	ZC3H11A	zinc finger CCCH-type containing 11A	HGNC:29093	1q32.1
+TRIM28	Approved symbol	TRIM28	tripartite motif containing 28	HGNC:16384	19q13.4
+HELZ	Approved symbol	HELZ	helicase with zinc finger	HGNC:16878	17q24.2
+TRIB1	Approved symbol	TRIB1	tribbles pseudokinase 1	HGNC:16891	8q24.13
+PHF21A	Approved symbol	PHF21A	PHD finger protein 21A	HGNC:24156	11p11.2
+SPG7	Approved symbol	SPG7	spastic paraplegia 7 (pure and complicated autosomal recessive)	HGNC:11237	16q24.3
+TAF10	Approved symbol	TAF10	TAF10 RNA polymerase II, TATA box binding protein (TBP)-associated factor, 30kDa	HGNC:11543	11p15.5-p15.2
+ZNF593	Approved symbol	ZNF593	zinc finger protein 593	HGNC:30943	1p35.3
+PFDN5	Approved symbol	PFDN5	prefoldin subunit 5	HGNC:8869	12q13.13
+BOLA1	Approved symbol	BOLA1	bolA family member 1	HGNC:24263	1q21
+RPL27	Approved symbol	RPL27	ribosomal protein L27	HGNC:10328	17q21
+UBR4	Approved symbol	UBR4	ubiquitin protein ligase E3 component n-recognin 4	HGNC:30313	1p36.13
+DUSP12	Approved symbol	DUSP12	dual specificity phosphatase 12	HGNC:3067	1q21-q22
+TPT1	Approved symbol	TPT1	tumor protein, translationally-controlled 1	HGNC:12022	13q14
+CSDA	Previous symbol	YBX3	Y box binding protein 3	HGNC:2428	12p13.1
+HNRNPK	Approved symbol	HNRNPK	heterogeneous nuclear ribonucleoprotein K	HGNC:5044	9q21.32-q21.33
+NPAS2	Approved symbol	NPAS2	neuronal PAS domain protein 2	HGNC:7895	2q11.2
+HDAC5	Approved symbol	HDAC5	histone deacetylase 5	HGNC:14068	17q21
+IRF3	Approved symbol	IRF3	interferon regulatory factor 3	HGNC:6118	19q13.3-q13.4
+SP110	Approved symbol	SP110	SP110 nuclear body protein	HGNC:5401	2q37.1
+SP110	Synonyms	PMP22	peripheral myelin protein 22	HGNC:9118	17p12
+USP7	Approved symbol	USP7	ubiquitin specific peptidase 7 (herpes virus-associated)	HGNC:12630	16p13.3
+MBD1	Approved symbol	MBD1	methyl-CpG binding domain protein 1	HGNC:6916	18q21
+THAP7	Approved symbol	THAP7	THAP domain containing 7	HGNC:23190	22q11.2
+ELF1	Approved symbol	ELF1	E74-like factor 1 (ets domain transcription factor)	HGNC:3316	13q13
+ELF1	Synonyms	ELOF1	elongation factor 1 homolog (S. cerevisiae)	HGNC:28691	19p13.2
+HMGB1	Approved symbol	HMGB1	high mobility group box 1	HGNC:4983	13q12
+TGIF1	Approved symbol	TGIF1	TGFB-induced factor homeobox 1	HGNC:11776	18p11.31
+ZNF212	Approved symbol	ZNF212	zinc finger protein 212	HGNC:13004	7q36.1
+RFX5	Approved symbol	RFX5	regulatory factor X, 5 (influences HLA class II expression)	HGNC:9986	1q21
+ZNF410	Approved symbol	ZNF410	zinc finger protein 410	HGNC:20144	14q24.3
+LHX2	Approved symbol	LHX2	LIM homeobox 2	HGNC:6594	9q33.3
+TCF21	Approved symbol	TCF21	transcription factor 21	HGNC:11632	6q23.2
+ZNF460	Approved symbol	ZNF460	zinc finger protein 460	HGNC:21628	19q13.4
+HOXB6	Approved symbol	HOXB6	homeobox B6	HGNC:5117	17q21.32
+HOXB9	Approved symbol	HOXB9	homeobox B9	HGNC:5120	17q21.32
+IKZF5	Approved symbol	IKZF5	IKAROS family zinc finger 5 (Pegasus)	HGNC:14283	10q26
+ZNF41	Approved symbol	ZNF41	zinc finger protein 41	HGNC:13107	Xp11.23
+AFF2	Approved symbol	AFF2	AF4/FMR2 family, member 2	HGNC:3776	Xq28
+ZNF493	Approved symbol	ZNF493	zinc finger protein 493	HGNC:23708	19p12
+CSRNP3	Approved symbol	CSRNP3	cysteine-serine-rich nuclear protein 3	HGNC:30729	2q24.3
+ZNF669	Approved symbol	ZNF669	zinc finger protein 669	HGNC:25736	1q44
+ZNF549	Approved symbol	ZNF549	zinc finger protein 549	HGNC:26632	19q13.43
+ZNF471	Approved symbol	ZNF471	zinc finger protein 471	HGNC:23226	19q13.43
+KDM4C	Approved symbol	KDM4C	lysine (K)-specific demethylase 4C	HGNC:17071	9p24-p23
+LOC100130354	Unmatched				
+WDHD1	Approved symbol	WDHD1	WD repeat and HMG-box DNA binding protein 1	HGNC:23170	14q22.2
+BRPF1	Approved symbol	BRPF1	bromodomain and PHD finger containing, 1	HGNC:14255	3p26-p25
+MKRN3	Approved symbol	MKRN3	makorin ring finger protein 3	HGNC:7114	15q11-q13
+ZFR	Approved symbol	ZFR	zinc finger RNA binding protein	HGNC:17277	5p15.2
+SNAPC5	Approved symbol	SNAPC5	small nuclear RNA activating complex, polypeptide 5, 19kDa	HGNC:15484	15q22
+YOD1	Approved symbol	YOD1	YOD1 deubiquitinase	HGNC:25035	1q32.2
+ZNF614	Approved symbol	ZNF614	zinc finger protein 614	HGNC:24722	19q13.41
+RAG1	Approved symbol	RAG1	recombination activating gene 1	HGNC:9831	11p13
+ZMAT3	Approved symbol	ZMAT3	zinc finger, matrin-type 3	HGNC:29983	3q26.32
+ZRSR1	Approved symbol	ZRSR1	zinc finger (CCCH type), RNA-binding motif and serine/arginine rich 1	HGNC:12456	5q22.2
+IL2	Approved symbol	IL2	interleukin 2	HGNC:6001	4q26-q27
+ELSPBP1	Approved symbol	ELSPBP1	epididymal sperm binding protein 1	HGNC:14417	19q13.33
+KCNH6	Approved symbol	KCNH6	potassium voltage-gated channel, subfamily H (eag-related), member 6	HGNC:18862	17q23.3
+IKBKAP	Approved symbol	IKBKAP	inhibitor of kappa light polypeptide gene enhancer in B-cells, kinase complex-associated protein	HGNC:5959	9q31
+RQCD1	Approved symbol	RQCD1	RCD1 required for cell differentiation1 homolog (S. pombe)	HGNC:10445	2q35
+RPA4	Approved symbol	RPA4	replication protein A4, 30kDa	HGNC:30305	Xq21
+IL17A	Approved symbol	IL17A	interleukin 17A	HGNC:5981	6p12
+SLC4A10	Approved symbol	SLC4A10	solute carrier family 4, sodium bicarbonate transporter, member 10	HGNC:13811	2q24.2
+ZFAND5	Approved symbol	ZFAND5	zinc finger, AN1-type domain 5	HGNC:13008	9q13-q21
+H2AFJ	Approved symbol	H2AFJ	H2A histone family, member J	HGNC:14456	12p12.3
+HIST1H2AL	Approved symbol	HIST1H2AL	histone cluster 1, H2al	HGNC:4730	6p22.1
+USP22	Approved symbol	USP22	ubiquitin specific peptidase 22	HGNC:12621	17p11.2
+EREG	Approved symbol	EREG	epiregulin	HGNC:3443	4q21.21
+FUT1	Approved symbol	FUT1	fucosyltransferase 1 (galactoside 2-alpha-L-fucosyltransferase, H blood group)	HGNC:4012	19q13.33
+IL11	Approved symbol	IL11	interleukin 11	HGNC:5966	19q13.3-q13.4
+MSTN	Approved symbol	MSTN	myostatin	HGNC:4223	2q32.1
+HTATIP2	Approved symbol	HTATIP2	HIV-1 Tat interactive protein 2, 30kDa	HGNC:16637	11p15.1
+ZNF185	Approved symbol	ZNF185	zinc finger protein 185 (LIM domain)	HGNC:12976	Xq28
+C11orf30	Approved symbol	C11orf30	chromosome 11 open reading frame 30	HGNC:18071	11q13.5
+SUV39H2	Approved symbol	SUV39H2	suppressor of variegation 3-9 homolog 2 (Drosophila)	HGNC:17287	10p13
+BRWD1	Approved symbol	BRWD1	bromodomain and WD repeat domain containing 1	HGNC:12760	21q22.2
+RNF2	Approved symbol	RNF2	ring finger protein 2	HGNC:10061	1q25.3
+RCHY1	Approved symbol	RCHY1	ring finger and CHY zinc finger domain containing 1, E3 ubiquitin protein ligase	HGNC:17479	4q21.1-q21.3
+TMF1	Approved symbol	TMF1	TATA element modulatory factor 1	HGNC:11870	3p14.1
