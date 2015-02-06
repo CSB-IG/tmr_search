@@ -89,7 +89,9 @@ print("Synergy analysis done")
 #################### S A V E  ######################
 ##################################################
 print("proced to Save")
+print("Cleaning")
 rm(list=to_clean,to_clean) #cleaning
+print("Saving")
 save.image("hugo_MARINa.RData")
 savehistory("hugo_MARINa.Rhistory")
 
