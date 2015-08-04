@@ -1,3 +1,0 @@
-Changes for version 1.01
-========================
-- We added a vignette Sweave document.

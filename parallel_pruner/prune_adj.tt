@@ -1,0 +1,27 @@
+
+import os
+
+
+# probando 1, 2, 3
+mi = {{ mi }}
+p  = {{ p }}
+matrix_name = '{{ matrix_name }}'
+gene_line = '{{ gene_line }}'
+
+gene_mi_list = gene_line.split()
+
+main_gene = gene_mi_list[0]
+
+filtered = [main_gene, ]
+for n in range(1,len(gene_mi_list),2):
+    if float(gene_mi_list[n+1]) >= mi:
+        filtered.append(gene_mi_list[n])
+        filtered.append(gene_mi_list[n+1])
+
+adj_filename = "%s_%s_%s.adj" % (main_gene, matrix_name, p)
+
+with open(adj_filename, 'w') as f:
+    f.write("\t".join(filtered))
+    f.write("\n")
+
+os.remove(os.path.realpath(__file__))

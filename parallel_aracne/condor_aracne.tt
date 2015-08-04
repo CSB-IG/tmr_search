@@ -1,0 +1,17 @@
+executable = aracne.sh
+error      = {{ run_id }}.error
+universe   = vanilla                  
+log        = {{ run_id }}.log                                                    
+
+{% for id in probes %}
+
+Arguments = -i {{ expfile }} \
+            -h {{ id }} \
+            -p {{ p }} \
+            -o {{ outdir }}/{{ id }}_{{ p }}.adj
+Output       = {{ id }}_{{ p }}.log
+Error        = {{ id }}_{{ p }}.err
+Queue
+
+{% endfor %}
+
