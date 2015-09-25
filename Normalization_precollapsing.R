@@ -128,7 +128,7 @@ healtBatch <- c(batch[-case])
 case_combat = ComBat(dat=caseExp, batch=caseBatch, mod=NULL)
 healt_combat = ComBat(dat=healtExp, batch=healtBatch, mod=NULL)
 
-# Join of the tu matrix
+# Re-join of the two matrix
 combat_2ways <- matrix(rep(0,19609040), ncol=880)
 colnames(combat_2ways) <- colnames(edata)
 rownames(combat_2ways) <- rownames(edata)
