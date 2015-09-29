@@ -56,7 +56,7 @@ GSMnames <- as.character(GSMnames)
 
 colnames(edata) <- GSMnames
 
-batch <- c((rep(0,880)))
+batch <- c((rep(0,N)))
 
 # Enfermos
 
@@ -129,7 +129,7 @@ case_combat = ComBat(dat=caseExp, batch=caseBatch, mod=NULL)
 healt_combat = ComBat(dat=healtExp, batch=healtBatch, mod=NULL)
 
 # Join of the tu matrix
-combat_2ways <- matrix(rep(0,19609040), ncol=880)
+combat_2ways <- matrix(rep(0,(22283*N)), ncol=N)
 colnames(combat_2ways) <- colnames(edata)
 rownames(combat_2ways) <- rownames(edata)
 combat_2ways[,control] <- healt_combat
@@ -146,6 +146,21 @@ dev.off()
 # Normalization of both Combat normalized subsets
 n_combat_2ways <- normalizeBetweenArrays(combat_2ways, method="cyclicloess")
 
+
+
+condition <- c(1:880)
+condition[case]=1
+condition[control]=2
+nsample <- N
+sample <- 1:nsample
+pdata <- data.frame(sample, batch, condition)
+modmatrix = model.matrix(~as.factor(condition), data=pdata)
+
+batchqc_heatmap(n_combat_2ways, batch=batch, mod=modmatrix)
+
+batchQC(edata, batch=batch, mod=modmatrix, report_file="batchqc_report_raw.html", report_dir=".")
+
+
 # Control plot for jioned cyclic loess normalized matrix
 
 pdf("2waysCombat_robust_weighted_average_cyclicloess.pdf",width=7,height=5)
@@ -157,7 +172,7 @@ dev.off()
 ### Pre-collapse preparation  ###
 
 # Design and contingence matrix
-design = matrix(rep(0,1760), nrow=880)
+design = matrix(rep(0,(N*2)), nrow=N)
 colnames(design) = c('case','healt')
 rownames(design) = colnames(combat_edata)
 design[n1456,1]=1
