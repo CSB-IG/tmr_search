@@ -15,4 +15,6 @@ Important links:
 
 * [Breast Cancer Network](https://github.com/CSB-IG/breast_cancer_networks) analisys, brother repository of this work 
 
-* [Computational Systems Biology/Integrative Genomics](http://genomicacomputacional.inmegen.gob.mx/ehernandez/people.html) group from [National Institute of Genomic Medicine](http://www.inmegen.gob.mx) - Mexico
+* [Computational Systems Biology/Integrative Genomics](http://csbig.inmegen.gob.mx/) group from [National Institute of Genomic Medicine](http://www.inmegen.gob.mx) - Mexico
+
+* ["Transcriptional master regulator analysis in breast cancer genetic networks"](http://dx.doi.org/10.1016/j.compbiolchem.2015.08.007) Resulting paper
